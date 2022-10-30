@@ -1,0 +1,31 @@
+.micro-cards {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 20px;
+  margin: 5% 5%;
+  box-shadow: 10px 10px 30px gainsboro;
+  height: 90%;
+}
+.micro-cards picture {
+  padding: 0 2%;
+}
+.micro-cards picture img {
+  width: 50px;
+  height: 50px;
+}
+.micro-cards-content {
+  padding: 0 10%;
+}
+.micro-cards-content p{
+  line-height: var(--xxxlg);
+  color: var(--text);
+}
+
+@media (max-width: 640px) {
+  .micro-cards {
+    flex-direction: column;
+    padding: 5% 0;
+    margin: 10% 5%;
+  }
+}

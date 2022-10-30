@@ -1,0 +1,8 @@
+@import url("./params.css");
+nav {
+  position: sticky;
+  top: 0;
+  display: block;
+  color: var(--violet-color);
+  overflow: hidden;
+}

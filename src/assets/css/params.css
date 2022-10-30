@@ -1,0 +1,32 @@
+:root {
+  --principal-color: #004e89;
+  --secondary-color: #1a659e;
+  --violet-color: #3c096c;
+  --neutral-color: #fffbff;
+  --hospital-green-color: #8ac926;
+  --text: #7d8597;
+  --white: #ffff;
+  --sm: 14px;
+  --md: 16px;
+  --lg: 18px;
+  --xlg: 20px;
+  --xxlg: 22px;
+  --xxxlg: 40px;
+  --super-font: 60px;
+}
+
+.primary-color-bg {
+  background-color: var(--principal-color);
+}
+.secondary-color-bg {
+  background-color: var(--secondary-color);
+}
+.violet-color-bg {
+  background-color: var(--violet-color);
+}
+.neutral-color-bg {
+  background-color: var(--neutral-color);
+}
+.hospital-green-color-bg {
+  background-color: var(--hospital-green-color);
+}

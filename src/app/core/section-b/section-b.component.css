@@ -1,0 +1,30 @@
+.form-container {
+  padding-left: 0;
+  height: 100%;
+  transition: 0.5s;
+}
+.section-container h1,
+h2 {
+  color: var(--white);
+}
+.half-img {
+  width: 100%;
+  object-fit: cover;
+}
+.grid-h2 {
+  display: grid;
+  gap: 2px;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 0 5%;
+  color: var(--white);
+}
+
+@media (max-width: 640px) {
+  .form-container {
+    padding: 0;
+  }
+  .grid-h2 {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
