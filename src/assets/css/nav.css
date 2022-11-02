@@ -4,5 +4,6 @@ nav {
   top: 0;
   display: block;
   color: var(--violet-color);
+  background-color: var(--white);
   overflow: hidden;
 }

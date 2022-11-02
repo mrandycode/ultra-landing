@@ -2,13 +2,18 @@ section {
   margin-top: 5%;
 }
 .footer-form {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 5% 0;
+}
+.copy-right {
+  color: var(--text);
+  align-self: center;
 }
 .footer-container {
   display: flex;
   flex-direction: column;
-  padding: 5%;
+  margin: 0 5%;
 }
 .footer-container a {
   text-decoration: none;
@@ -17,15 +22,32 @@ section {
   cursor: pointer;
 }
 .footer-container a:nth-child(1) {
-  color: var(--violet-color);
+  color: var(--hospital-green-color);
   font-weight: bold;
 }
-a:hover {
-  color: var(--violet-color);
+.footer-container a:hover {
+  color: var(--hospital-green-color);
+}
+.footer-container .icons-footer {
+  display: flex;
+  justify-content:center;
+}
+.footer-container .icons-footer a{
+  margin: 0 1%;
+}
+.footer-container .icons-footer img {
+  width: 30px;
+  height: 30px;
+}
+.icons-footer img:hover{
+  cursor: pointer;
 }
 
 @media (max-width: 640px) {
   .footer-form {
-    flex-direction: column;
+    grid-template-columns: 1fr;
+  }
+  .footer-container {
+    margin: 2% 0;
   }
 }
