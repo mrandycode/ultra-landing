@@ -119,6 +119,10 @@ section h1 {
 section .section-container  h1{
   align-items: baseline;
 }
+.vertical-separator{
+  border-left: 100px solid var(--violet-color);
+  height: 10px;
+}
 
 @media (max-width: 640px) {
   .form-container {

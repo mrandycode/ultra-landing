@@ -1,9 +1,17 @@
+.flex-info {
+  display: flex;
+  flex-direction: column;
+}
+.flex-info h2 {
+  margin: 0;
+}
 .grid-h2 {
   display: grid;
   gap: 2px;
   grid-template-columns: repeat(4, 1fr);
   padding: 0 5%;
   color: var(--text);
+  padding-bottom: 5%;
 }
 
 @media (max-width: 640px) {
