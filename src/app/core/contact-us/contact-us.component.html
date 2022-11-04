@@ -1,0 +1,64 @@
+<section class="form-container neutral-color-bg">
+  <form [formGroup]="contactUsForm" novalidate>
+    <div class="input-form">
+      <label for="name"> Nombre </label>
+      <input type="text" name="name" id="name" formControlName="name" />
+    </div>
+
+    <div class="input-form">
+      <label for="lastName"> Apellido </label>
+      <input
+        type="text"
+        name="lastName"
+        id="lastName"
+        formControlName="lastName"
+      />
+    </div>
+
+    <div class="input-form">
+      <label for="email"> Correo Electrónico </label>
+      <input type="email" name="email" id="email" formControlName="email" />
+    </div>
+
+    <div class="input-form">
+      <label for="country"> País </label>
+      <input
+        type="text"
+        name="country"
+        id="country"
+        formControlName="country"
+      />
+    </div>
+
+    <div class="input-form">
+      <label for="message"> Mensaje </label>
+      <textarea
+        type="text"
+        name="message"
+        rows="10"
+        id="message"
+        formControlName="message"
+      ></textarea>
+    </div>
+
+    <button
+      type="button"
+      class="primary-button"
+      id="btn-contact-us"
+      name="btn-contact-us"
+      (click)="sendContactUs()"
+    >
+      Enviar
+    </button>
+  </form>
+  <div class="content-us-img">
+    <div>
+      <h1>Contáctenos</h1>
+    </div>
+    <img
+      class="header-img"
+      src="https://images.pexels.com/photos/1438072/pexels-photo-1438072.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      alt=""
+    />
+  </div>
+</section>
