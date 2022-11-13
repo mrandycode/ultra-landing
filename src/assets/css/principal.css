@@ -100,7 +100,7 @@ section h1 {
   line-height: 20px;
   padding: 0 10%;
 }
-.content-text h1 {
+.title-text {
   color: var(--white);
 }
 .flex-container img {
@@ -115,13 +115,28 @@ section h1 {
   padding: 5%;
   justify-content: baseline;
 }
-
-section .section-container  h1{
+section .section-container h1 {
   align-items: baseline;
 }
-.vertical-separator{
+.vertical-separator {
   border-left: 100px solid var(--violet-color);
   height: 10px;
+}
+.input-form {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+}
+.input-form label {
+  color: var(--text);
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.input-form input,
+.input-form textarea {
+  padding: 10px;
+  border: 2px solid var(--violet-color);
+  border-radius: 5px;
 }
 
 @media (max-width: 640px) {
@@ -131,7 +146,7 @@ section .section-container  h1{
   }
   .subtitle {
     margin: 10px 50px 20px 50px;
-  } 
+  }
   .simple-container div {
     margin: 10px 50px 20px 50px;
   }

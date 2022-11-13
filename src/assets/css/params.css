@@ -15,6 +15,25 @@
   --super-font: 60px;
 }
 
+.primary-color {
+  color: var(--principal-color);
+}
+.secondary-color {
+  color: var(--secondary-color);
+}
+.violet-color {
+  color: var(--violet-color);
+}
+.neutral-color {
+  color: var(--neutral-color);
+}
+.hospital-green-color {
+  color: var(--hospital-green-color);
+}
+.white-color {
+  color: var(--white);
+}
+
 .primary-color-bg {
   background-color: var(--principal-color);
 }
