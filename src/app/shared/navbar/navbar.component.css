@@ -12,10 +12,7 @@ ul li {
   padding: 20px;
 }
 ul li:hover {
-  color: var(--white);
-  background-color: var(--secondary-color);
+  color: var(--principal-color);
   cursor: pointer;
-  width: 100px;
-  border-radius: 10px;
-  box-shadow: 2px 2px 2px gray;
+  font-weight: bold;
 }

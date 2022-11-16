@@ -100,6 +100,9 @@ section h1 {
   line-height: 20px;
   padding: 0 10%;
 }
+.content-title {
+  padding: 0 10%;
+}
 .title-text {
   color: var(--white);
 }
@@ -166,9 +169,6 @@ section .section-container h1 {
     padding: 0 10%;
   }
 
-  .content-text h1 {
-    line-height: 40px;
-  }
   .flex-container img {
     height: calc(100% - 30vh);
   }
