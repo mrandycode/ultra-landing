@@ -1,0 +1,105 @@
+<section class="form-container">
+  <div>
+    <h1 class="secondary-font">Soy talento</h1>
+    <div>
+      <p class="subtitle">Si deseas estar</p>
+    </div>
+    <div class="simple-container"></div>
+  </div>
+  <figure>
+    <img
+      src="https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      alt=""
+      class="header-img"
+    />
+  </figure>
+</section>
+<section class="form-container neutral-color-bg">
+  <form [formGroup]="contactUsForm" novalidate>
+    <div class="input-form">
+      <label for="name"> Nombre </label>
+      <input type="text" name="name" id="name" formControlName="name" />
+    </div>
+
+    <div class="input-form">
+      <label for="lastName"> Apellido </label>
+      <input
+        type="text"
+        name="lastName"
+        id="lastName"
+        formControlName="lastName"
+      />
+    </div>
+
+    <div class="input-form">
+      <label for="email"> Correo Electrónico </label>
+      <input type="email" name="email" id="email" formControlName="email" />
+    </div>
+
+    <div class="input-form">
+      <label for="country"> País </label>
+      <input
+        type="text"
+        name="country"
+        id="country"
+        formControlName="country"
+      />
+    </div>
+
+    <div class="input-form">
+        <label for="skills"> Profesión</label>
+        <select
+          name="skills"
+          id="skills"
+          formControlName="message"
+        >
+          <option value="developer">Programador</option>
+          <option value="developer">Marketing</option>
+          <option value="developer">Recursos Humanos</option>
+        </select>
+      </div>
+
+    <div class="input-form">
+      <label for="skills"> Elige tres fortalezas</label>
+      <select
+        type="file"
+        accept="application/pdf"
+        name="skills"
+        id="skills"
+        formControlName="message"
+      >
+        <option value="DB">Base de Datos</option>
+      </select>
+    </div>
+
+    <div class="input-form">
+      <label for="cvUpload"> Subir CV </label>
+      <input
+        type="file"
+        accept="application/pdf"
+        name="cvUpload"
+        id="cvUpload"
+        formControlName="message"
+      />
+    </div>
+
+    <button
+      type="button"
+      class="primary-button"
+      id="btn-contact-us"
+      name="btn-contact-us"
+    >
+      Enviar
+    </button>
+  </form>
+  <!-- <div class="content-us-img">
+      <div>
+        <h1>Contáctenos</h1>
+      </div>
+      <img
+        class="header-img"
+        src="https://images.pexels.com/photos/1438072/pexels-photo-1438072.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        alt=""
+      />
+    </div> -->
+</section>

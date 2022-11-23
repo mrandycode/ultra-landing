@@ -13,10 +13,25 @@ body {
   place-content: center;
   align-items: center;
   grid-template-columns: 1fr 1fr;
-  padding: 0 5%;
+  padding: 0 10%;
 }
 .form-container figure {
   justify-self: center;
+}
+.center-carousel-grids {
+  display: flex;
+  justify-content: center;
+}
+.carousel-grids {
+  width: 100%;
+  display: flex;
+  /* gap: 1px; */
+  place-content: center;
+  align-items: center;
+  /* grid-template-columns: repeat(10, 1fr); */
+  overflow-x:scroll  ;
+  padding: 0 20%;
+  margin: 0 10%;
 }
 h1 {
   color: var(--text);
@@ -82,12 +97,13 @@ section h1 {
 .container {
   display: flex;
   width: 100%;
-  padding: 4% 2%;
+  /* padding: 4% 1%; */
   box-sizing: border-box;
   height: 100vh;
 }
 .flex-container {
-  flex: 1;
+  width: 600px;
+  /* flex: 10; */
   overflow: hidden;
   transition: 0.5s;
   margin: 0 2%;
