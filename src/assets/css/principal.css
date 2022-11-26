@@ -29,7 +29,7 @@ body {
   place-content: center;
   align-items: center;
   /* grid-template-columns: repeat(10, 1fr); */
-  overflow-x:scroll  ;
+  overflow-x: scroll;
   padding: 0 20%;
   margin: 0 10%;
 }
@@ -97,13 +97,10 @@ section h1 {
 .container {
   display: flex;
   width: 100%;
-  /* padding: 4% 1%; */
   box-sizing: border-box;
   height: 100vh;
 }
 .flex-container {
-  width: 600px;
-  /* flex: 10; */
   overflow: hidden;
   transition: 0.5s;
   margin: 0 2%;
@@ -152,7 +149,11 @@ section .section-container h1 {
   margin-bottom: 5px;
 }
 .input-form input,
-.input-form textarea {
+select,
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   padding: 10px;
   border: 2px solid var(--violet-color);
   border-radius: 5px;

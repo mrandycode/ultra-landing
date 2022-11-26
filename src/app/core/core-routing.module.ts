@@ -6,7 +6,8 @@ import { HumanResourceComponent } from './human-resource/human-resource.componen
 const routes: Routes = [
   {
     path: 'human-resource',
-    component: HumanResourceComponent
+    component: HumanResourceComponent,
+    pathMatch: 'full'
   },
   {
     path: 'customer',

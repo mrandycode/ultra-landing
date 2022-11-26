@@ -6,8 +6,27 @@
     "ultra-landing": {
       "projectType": "application",
       "schematics": {
+        "@schematics/angular:component": {
+          "skipTests": true,
+          "inlineStyle":true
+        },
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        }
       },
-      "root": "",
+      "root": "kooditec",
       "sourceRoot": "src",
       "prefix": "app",
       "architect": {
