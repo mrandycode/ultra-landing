@@ -8,12 +8,14 @@ import { CoreModule } from './core/core.module';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { SharedModule } from './shared/shared.module';
+import { HttpClientModule } from '@angular/common/http';
 
 const BASIC_MODULES = [
   FormsModule,
   ReactiveFormsModule,
   BrowserModule,
-  AppRoutingModule
+  AppRoutingModule,
+  HttpClientModule
 ];
 @NgModule({
   declarations: [AppComponent, HomeComponent, FooterComponent],

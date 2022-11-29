@@ -13,6 +13,10 @@
   }
   .input-form label {
     color: var(--dark);
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
+    margin: 0;
   }
   .subtitle {
     margin: 10px 0;
@@ -26,6 +30,39 @@
   .flex-container form {
     padding: 10% 5%;
     justify-items: end;
+  }
+  .my-skill {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .my-skill ul {
+    padding: 0 2px;
+  }
+  .my-skill li {
+    list-style: none;
+    background-color: var(--neutral-color);
+    color: var(--violet-color);
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 50px;
+    border: 1px solid var(--violet-color);
+    text-align: center;
+    font-size: small;
+    cursor: pointer;
+  }
+  .my-skill li:hover {
+    background-color: var(--violet-color);
+    color: var(--neutral-color);
+  }
+  label span {
+    background-color: var(--neutral-color);
+    font-size: small;
+    border: 1 px solid var(--violet-color);
+    padding: 5px;
+    border-radius:50%;
+    width: 20px;
+    height: 20px;
+    text-align: center;
   }
 </style>
 
@@ -87,27 +124,45 @@
               formControlName="country"
             />
           </div>
-
           <div class="input-form">
-            <label for="skills"> Profesión</label>
-            <select name="skills" id="skills" formControlName="message">
-              <option value="developer">Programador</option>
-              <option value="developer">Marketing</option>
-              <option value="developer">Recursos Humanos</option>
+            <label for="profession"> Profesión</label>
+            <select
+              name="profession"
+              id="professions"
+              formControlName="profession"
+              (change)="getSkills()"
+            >
+              <option value="0">Seleccione</option>
+              <option
+                *ngFor="let profession of professions"
+                [value]="profession.id"
+              >
+                {{ profession.name }}
+              </option>
             </select>
           </div>
-
           <div class="input-form">
-            <label for="skills"> Elige tres fortalezas</label>
-            <select
-              type="file"
-              accept="application/pdf"
-              name="skills"
-              id="skills"
-              formControlName="message"
+            <label for="skills">
+              Elige tres fortalezas
+              <span *ngIf="skillsSelected.length > 0">{{ skillsSelected.length }}</span></label
             >
-              <option value="DB">Base de Datos</option>
+            <select
+              name="mySkills"
+              id="mySkills"
+              [(ngModel)]="skillSelected"
+              [ngModelOptions]="{ standalone: true }"
+              (change)="setMySkills()"
+            >
+              <option value="0">Seleccione</option>
+              <option *ngFor="let skill of skills" [ngValue]="skill">
+                {{ skill.name }}
+              </option>
             </select>
+          </div>
+          <div class="my-skill">
+            <ul *ngFor="let skill of skillsSelected">
+              <li (click)="deleteSkill(skill)">{{ skill.name }}</li>
+            </ul>
           </div>
 
           <div class="input-form">
@@ -126,6 +181,8 @@
             class="primary-button"
             id="btn-contact-us"
             name="btn-contact-us"
+            [disabled]="!contactUsForm.valid"
+            (click)="sendCv()"
           >
             Enviar
           </button>
