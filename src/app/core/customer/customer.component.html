@@ -1,1 +1,215 @@
-<h1>customer works!</h1>
+<style>
+  .form-container figure {
+    margin-top: 10%;
+  }
+  section.my-gradient {
+    background: rgb(2, 0, 36);
+    background: linear-gradient(
+      180deg,
+      rgba(2, 0, 36, 1) 0%,
+      rgba(26, 101, 158, 1) 45%,
+      rgba(255, 255, 255, 1) 100%
+    );
+  }
+  .input-form input {
+    border: 2px solid var(--principal-color);
+  }
+  .input-form label {
+    color: var(--dark);
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
+    margin: 0;
+  }
+  .subtitle {
+    margin: 10px 0;
+  }
+  .container .flex-container {
+    width: 100%;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+  }
+  .flex-container form {
+    padding: 10% 5%;
+    justify-items: end;
+  }
+  .my-skill {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .my-skill ul {
+    padding: 0 2px;
+  }
+  .my-skill li {
+    list-style: none;
+    background-color: var(--neutral-color);
+    color: var(--violet-color);
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 50px;
+    border: 1px solid var(--violet-color);
+    text-align: center;
+    font-size: small;
+    cursor: pointer;
+  }
+  .my-skill li:hover {
+    background-color: var(--violet-color);
+    color: var(--neutral-color);
+  }
+  label span {
+    background-color: var(--neutral-color);
+    font-size: small;
+    border: 1 px solid var(--violet-color);
+    padding: 5px;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+  }
+  .select-p {
+    width: 300px;
+  }
+</style>
+
+<section class="my-gradient" id="start-customer">
+  <section class="form-container">
+    <div>
+      <h1 class="white-color">Soy cliente</h1>
+      <div>
+        <p class="subtitle white-color">
+          Te brindamos el mejor equipo para que tu negocio pueda seguir
+          creciendo. Tus necesidades son nuestra prioridad.
+        </p>
+      </div>
+      <div class="simple-container"></div>
+    </div>
+    <figure>
+      <img
+        src="https://images.pexels.com/photos/4342493/pexels-photo-4342493.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        alt=""
+        class="header-img"
+      />
+    </figure>
+  </section>
+  <section class="form-container">
+    <div class="container">
+      <div class="flex-container">
+        <form [formGroup]="customerForm" novalidate>
+          <div class="input-form">
+            <label for="companyName"> Nombre de la empresa</label>
+            <input
+              type="text"
+              name="companyName"
+              id="companyName"
+              formControlName="companyName"
+            />
+          </div>
+          
+          <div class="input-form">
+            <label for="conctactName"> Nombre de contacto </label>
+            <input
+              type="text"
+              name="contactName"
+              id="contactName"
+              formControlName="contactName"
+            />
+          </div>
+
+          <div class="input-form">
+            <label for="email"> Correo Electrónico </label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              formControlName="email"
+            />
+          </div>
+
+          <div class="input-form">
+            <label for="country"> País </label>
+            <input
+              type="text"
+              name="country"
+              id="country"
+              formControlName="country"
+            />
+          </div>
+          <div class="input-form">
+            <label for="companyType"> Tipo de empresa</label>
+            <select
+              name="companyType"
+              id="companyType"
+              formControlName="companyType"
+              (change)="getCompanyTypes()"
+            >
+              <option value="0">Seleccione</option>
+              <option
+                *ngFor="let companyType of companyTypes"
+                [value]="companyType.id"
+              >
+                {{ companyType.name }}
+              </option>
+            </select>
+          </div>
+
+          <div class="input-form">
+            <label for="mobile"> Mobile</label>
+            <input
+              type="tel"
+              name="mobile"
+              id="mobile"
+              formControlName="mobile"
+            />
+          </div>
+          <div class="input-form">
+            <label for="telephone"> Teléfono</label>
+            <input
+              type="tel"
+              name="telephone"
+              id="telephone"
+              formControlName="telephone"
+            />
+          </div>
+          <div class="input-form">
+            <label for="message">
+              Cuentanos en pocas palabras tu necesidad</label
+            >
+            <textarea
+              cols="10"
+              rows="10"
+              type="text"
+              name="message"
+              id="message"
+              formControlName="message"
+            ></textarea>
+          </div>
+          <div class="input-form">
+            <label for="platform"> Plataformas</label>
+            <input
+              type="tel"
+              name="platform"
+              id="platform"
+              formControlName="platform"
+            />
+          </div>
+          {{ customerForm.valid }}
+          <button
+            type="button"
+            class="primary-button"
+            id="btn-contact-us"
+            name="btn-contact-us"
+            [disabled]="!customerForm.valid"
+            (click)="send()"
+          >
+            Enviar
+          </button>
+        </form>
+        <!-- <img          
+            src="https://images.pexels.com/photos/1438072/pexels-photo-1438072.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            alt=""
+          /> -->
+      </div>
+    </div>
+  </section>
+</section>

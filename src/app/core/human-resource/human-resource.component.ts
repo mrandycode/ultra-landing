@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HumanResourceService } from '@core/services/human-resource.service';
-import { Profession, Skill } from '@core/models/human-resource-model';
+import { Profession, Skill } from '@core/human-resource/models/human-resource-model';
 @Component({
   selector: 'app-human-resource',
   templateUrl: './human-resource.component.html',
@@ -12,7 +12,7 @@ export class HumanResourceComponent implements OnInit {
   skills!: Skill[] | undefined;
   skillSelected!: Skill;
   skillsSelected: Skill[] = [];
-  contactUsForm!: FormGroup;
+  humanResourceForm!: FormGroup;
   constructor(
     private formBuilder: FormBuilder,
     private humanResourceService: HumanResourceService
@@ -24,7 +24,7 @@ export class HumanResourceComponent implements OnInit {
   }
 
   builderForms(): void {
-    this.contactUsForm = this.formBuilder.group({
+    this.humanResourceForm = this.formBuilder.group({
       name: [
         '',
         [
@@ -64,7 +64,7 @@ export class HumanResourceComponent implements OnInit {
     this.skills = this.professions.find(
       (profession) =>
         profession.id ===
-        parseInt(this.contactUsForm.get('profession')?.value, 10)
+        parseInt(this.humanResourceForm.get('profession')?.value, 10)
     )?.skills;
   }
 
@@ -79,7 +79,7 @@ export class HumanResourceComponent implements OnInit {
     );
     this.skillsSelected.splice(id, 1);
   }
-  
+
   sendCv(): void {
     console.log(' enviado');
   }

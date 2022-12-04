@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { environment } from '@environments/environment';
-import { HumanResourceResponse } from '@core/models/human-resource-model-responses';
-import { Profession } from '@core/models/human-resource-model';
+import { HumanResourceResponse } from '@core/human-resource/models/human-resource-model-responses';
+import { Profession } from '@core/human-resource/models/human-resource-model';
 
 @Injectable({
   providedIn: 'root',

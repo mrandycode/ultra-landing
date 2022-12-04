@@ -2,7 +2,7 @@
   .form-container figure {
     margin-top: 10%;
   }
-  section.my-gardient {
+  section.my-gradient {
     background: rgb(255, 255, 255);
     background: linear-gradient(
       0deg,
@@ -59,14 +59,14 @@
     font-size: small;
     border: 1 px solid var(--violet-color);
     padding: 5px;
-    border-radius:50%;
+    border-radius: 50%;
     width: 20px;
     height: 20px;
     text-align: center;
   }
 </style>
 
-<section class="my-gardient" [attr.id]="'start'">
+<section class="my-gradient" id="start-human-resource">
   <section class="form-container">
     <figure>
       <img
@@ -89,7 +89,7 @@
   <section class="form-container">
     <div class="container">
       <div class="flex-container">
-        <form [formGroup]="contactUsForm" novalidate>
+        <form [formGroup]="humanResourceForm" novalidate>
           <div class="input-form">
             <label for="name"> Nombre </label>
             <input type="text" name="name" id="name" formControlName="name" />
@@ -144,7 +144,9 @@
           <div class="input-form">
             <label for="skills">
               Elige tres fortalezas
-              <span *ngIf="skillsSelected.length > 0">{{ skillsSelected.length }}</span></label
+              <span *ngIf="skillsSelected.length > 0">{{
+                skillsSelected.length
+              }}</span></label
             >
             <select
               name="mySkills"
@@ -175,13 +177,13 @@
               formControlName="message"
             />
           </div>
-
+          {{ humanResourceForm.valid }}
           <button
             type="button"
             class="primary-button"
             id="btn-contact-us"
             name="btn-contact-us"
-            [disabled]="!contactUsForm.valid"
+            [disabled]="!humanResourceForm.valid"
             (click)="sendCv()"
           >
             Enviar

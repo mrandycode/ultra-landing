@@ -98,7 +98,6 @@ section h1 {
   display: flex;
   width: 100%;
   box-sizing: border-box;
-  height: 100vh;
 }
 .flex-container {
   overflow: hidden;
@@ -157,6 +156,8 @@ textarea {
   padding: 10px;
   border: 2px solid var(--violet-color);
   border-radius: 5px;
+  width: 300px;
+  font-size: var(--sm);
 }
 
 @media (max-width: 640px) {
