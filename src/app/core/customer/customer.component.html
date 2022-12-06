@@ -34,14 +34,14 @@
     padding: 10% 5%;
     justify-items: end;
   }
-  .my-skill {
+  .my-platform {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
-  .my-skill ul {
+  .my-platform ul {
     padding: 0 2px;
   }
-  .my-skill li {
+  .my-platform li {
     list-style: none;
     background-color: var(--neutral-color);
     color: var(--violet-color);
@@ -53,7 +53,7 @@
     font-size: small;
     cursor: pointer;
   }
-  .my-skill li:hover {
+  .my-platform li:hover {
     background-color: var(--violet-color);
     color: var(--neutral-color);
   }
@@ -66,9 +66,6 @@
     width: 20px;
     height: 20px;
     text-align: center;
-  }
-  .select-p {
-    width: 300px;
   }
 </style>
 
@@ -105,7 +102,7 @@
               formControlName="companyName"
             />
           </div>
-          
+
           <div class="input-form">
             <label for="conctactName"> Nombre de contacto </label>
             <input
@@ -137,43 +134,44 @@
           </div>
           <div class="input-form">
             <label for="companyType"> Tipo de empresa</label>
-            <select
+            <input
               name="companyType"
               id="companyType"
               formControlName="companyType"
-              (change)="getCompanyTypes()"
+              type="text"
+            />
+          </div>
+          <div class="input-form">
+            <label for="platform"> Plataformas</label>
+            <select
+              name="platform"
+              id="platform"
+              [(ngModel)]="platformSelected"
+              [ngModelOptions]="{ standalone: true }"
+              (change)="setPlatforms()"
             >
               <option value="0">Seleccione</option>
               <option
-                *ngFor="let companyType of companyTypes"
-                [value]="companyType.id"
+                value="0"
+                *ngFor="let platform of platforms"
+                [ngValue]="platform"
               >
-                {{ companyType.name }}
+                {{ platform.name }}
               </option>
             </select>
           </div>
-
-          <div class="input-form">
-            <label for="mobile"> Mobile</label>
-            <input
-              type="tel"
-              name="mobile"
-              id="mobile"
-              formControlName="mobile"
-            />
+          <div class="my-platform">
+            <ul *ngFor="let platform of platformsSelected">
+              <li (click)="deleteSkill(platform)">{{ platform.name }}</li>
+            </ul>
           </div>
           <div class="input-form">
-            <label for="telephone"> Teléfono</label>
-            <input
-              type="tel"
-              name="telephone"
-              id="telephone"
-              formControlName="telephone"
-            />
+            <label for="phone"> Teléfono</label>
+            <input type="tel" name="phone" id="phone" formControlName="phone" />
           </div>
           <div class="input-form">
             <label for="message">
-              Cuentanos en pocas palabras tu necesidad</label
+              Cuéntanos en pocas palabras tu necesidad</label
             >
             <textarea
               cols="10"
@@ -184,16 +182,7 @@
               formControlName="message"
             ></textarea>
           </div>
-          <div class="input-form">
-            <label for="platform"> Plataformas</label>
-            <input
-              type="tel"
-              name="platform"
-              id="platform"
-              formControlName="platform"
-            />
-          </div>
-          {{ customerForm.valid }}
+
           <button
             type="button"
             class="primary-button"

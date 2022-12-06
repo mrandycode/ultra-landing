@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CompanyType } from './models/customer-model';
+import { CustomerService } from '@core/services/customer.service';
+import { Platform } from './models/customer-model';
 
 @Component({
   selector: 'app-customer',
@@ -9,11 +10,17 @@ import { CompanyType } from './models/customer-model';
 })
 export class CustomerComponent implements OnInit {
   customerForm!: FormGroup;
-  companyTypes!: CompanyType[];
-  constructor(private formBuilder: FormBuilder) {}
+  platforms!: Platform[];
+  platformSelected!: Platform;
+  platformsSelected: Platform[] = [];
+  constructor(
+    private formBuilder: FormBuilder,
+    private customerService: CustomerService
+  ) {}
 
   ngOnInit(): void {
     this.builderForms();
+    this.getPlatforms();
   }
 
   builderForms(): void {
@@ -34,16 +41,32 @@ export class CustomerComponent implements OnInit {
           Validators.maxLength(100),
         ],
       ],
-      mobile: ['', [Validators.maxLength(50)]],
       phone: ['', [Validators.maxLength(50)]],
       email: ['', [Validators.maxLength(64), Validators.email]],
       message: [''],
-      companyType: [[]],
-      platform: [[], [Validators.required]],
+      companyType: [''],
+      platforms: [[], [Validators.required]],
       country: ['', [Validators.required]],
     });
   }
-  getCompanyTypes(): void{}
 
   send(): void {}
+
+  getPlatforms(): void {
+    this.customerService.getProfessions().subscribe((response) => {
+      this.platforms = response;
+    });
+  }
+  setPlatforms(): void {
+    console.log(this.platformSelected, 'plasdasd');
+    if (this.platformsSelected.length < 3)
+      this.platformsSelected.push(this.platformSelected);
+  }
+
+  deleteSkill(platform: Platform): void {
+    const id = this.platformsSelected.findIndex(
+      (platform_) => platform_.id === platform.id
+    );
+    this.platformsSelected.splice(id, 1);
+  }
 }

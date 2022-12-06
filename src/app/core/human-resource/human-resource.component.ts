@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HumanResourceService } from '@core/services/human-resource.service';
-import { Profession, Skill } from '@core/human-resource/models/human-resource-model';
+import {
+  Profession,
+  Skill,
+} from '@core/human-resource/models/human-resource-model';
 @Component({
   selector: 'app-human-resource',
   templateUrl: './human-resource.component.html',
@@ -54,7 +57,6 @@ export class HumanResourceComponent implements OnInit {
 
   getProfessions(): void {
     this.humanResourceService.getProfessions().subscribe((response) => {
-      console.log('response', response);
       this.professions = response;
     });
   }

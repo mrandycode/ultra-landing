@@ -14,10 +14,6 @@ export class HumanResourceService {
   constructor(private http: HttpClient) {}
 
   getProfessions(): Observable<Profession[]> {
-    // const params = new HttpParams().append(
-    //   'RequestJson',
-    //   JSON.stringify(transactionRequestStores)
-    // );
     return this.http.get(this.getProfessionUrl).pipe(
       map((response) => {
         return response as Profession[];

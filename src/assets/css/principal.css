@@ -159,6 +159,9 @@ textarea {
   width: 300px;
   font-size: var(--sm);
 }
+select {
+  width: 100%;
+}
 
 @media (max-width: 640px) {
   .form-container {
