@@ -46,9 +46,10 @@
               "src/styles.css",
               "src/assets/css/principal.css",
               "src/assets/css/nav.css",
-              "src/assets/css/helper-cards.css"
+              "src/assets/css/helper-cards.css",
+              "node_modules/intl-tel-input/build/css/intlTelInput.css"
             ],
-            "scripts": []
+            "scripts": ["node_modules/intl-tel-input/build/js/intlTelInput.min.js"]
           },
           "configurations": {
             "production": {

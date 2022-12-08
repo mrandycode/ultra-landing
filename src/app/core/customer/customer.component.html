@@ -14,6 +14,14 @@
   .input-form input {
     border: 2px solid var(--principal-color);
   }
+  .input-form input:invalid {
+    border: 1px solid var(--error-color);
+  }
+
+  .input-form input:focus {
+    border: 1px solid #3a0ca3;
+  }
+
   .input-form label {
     color: var(--dark);
     display: flex;
@@ -37,6 +45,12 @@
   .my-platform {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    height: 200px;
+    max-height: 200px;
+    overflow-x: scroll;
+    border: 1px solid var(--violet-color);
+    border-radius: 4px;
+    padding: 5px;
   }
   .my-platform ul {
     padding: 0 2px;
@@ -165,9 +179,23 @@
               <li (click)="deleteSkill(platform)">{{ platform.name }}</li>
             </ul>
           </div>
-          <div class="input-form">
+          <div class="input-form primary-color">
             <label for="phone"> Teléfono</label>
-            <input type="tel" name="phone" id="phone" formControlName="phone" />
+            <input
+           
+              type="tel"
+              name="phone"
+              id="phone"
+              formControlName="phone"
+              ng2TelInput
+              placeholder="04121234567"
+              [ng2TelInputOptions]="{ initialCountry: 've' }"
+              (ng2TelOutput)="hasOutPut($event, 'phone')"
+              (hasError)="hasError($event)"
+            />
+            <span class="error-span" *ngIf="customerForm.get('phone')?.errors">
+              {{ "GENERIC.ERROR_PHONE" | translate }}
+            </span>
           </div>
           <div class="input-form">
             <label for="message">

@@ -34,6 +34,12 @@
   .my-skill {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    height: 120px;
+    max-height: 120px;
+    overflow-x: scroll;
+    border: 1px solid var(--violet-color);
+    border-radius: 4px;
+    padding: 5px;
   }
   .my-skill ul {
     padding: 0 2px;
@@ -177,7 +183,6 @@
               formControlName="message"
             />
           </div>
-          {{ humanResourceForm.valid }}
           <button
             type="button"
             class="primary-button"

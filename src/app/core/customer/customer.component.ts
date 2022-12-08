@@ -58,8 +58,7 @@ export class CustomerComponent implements OnInit {
     });
   }
   setPlatforms(): void {
-    console.log(this.platformSelected, 'plasdasd');
-    if (this.platformsSelected.length < 3)
+    if (this.platformsSelected.length < 100)
       this.platformsSelected.push(this.platformSelected);
   }
 
@@ -68,5 +67,21 @@ export class CustomerComponent implements OnInit {
       (platform_) => platform_.id === platform.id
     );
     this.platformsSelected.splice(id, 1);
+  }
+
+  hasOutPut(event: any, nameColumn: string): void {
+    if (nameColumn === 'mobile') {
+      this.customerForm.patchValue({ mobile: event });
+    } else {
+      this.customerForm.patchValue({ phone: event });
+    }
+  }
+
+  hasError(event: any): void {
+    if (!event && this.customerForm.value.phone !== '') {
+      this.customerForm
+        .get('phone')!
+        .setErrors(['invalid_cell_phone', true]);
+    }
   }
 }

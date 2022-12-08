@@ -9,7 +9,7 @@ import { SectionDComponent } from './section-d/section-d.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { HumanResourceComponent } from './human-resource/human-resource.component';
 import { CustomerComponent } from './customer/customer.component';
-
+import { Ng2TelInputModule } from 'ng2-tel-input';
 const componentsOfModules = [
   SectionAComponent,
   SectionBComponent,
@@ -17,12 +17,12 @@ const componentsOfModules = [
   SectionDComponent,
   ContactUsComponent,
   HumanResourceComponent,
-  CustomerComponent
+  CustomerComponent,
 ];
 
 @NgModule({
   declarations: [componentsOfModules],
-  imports: [CommonModule, CoreRoutingModule, SharedModule],
+  imports: [CommonModule, CoreRoutingModule, SharedModule, Ng2TelInputModule],
   exports: [componentsOfModules],
 })
 export class CoreModule {}

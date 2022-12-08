@@ -3,6 +3,7 @@
 body {
   margin: 0;
   font-family: "Cabin", sans-serif;
+  font-size: 14px;
 }
 .secondary-font {
   font-family: "Kalam", cursive;
@@ -162,7 +163,11 @@ textarea {
 select {
   width: 100%;
 }
-
+.error-span{
+  color: var(--error-color);
+  font-weight: bold;
+  font-size: 12px;
+}
 @media (max-width: 640px) {
   .form-container {
     display: grid;
@@ -189,7 +194,6 @@ select {
     line-height: 30px;
     padding: 0 10%;
   }
-
   .flex-container img {
     height: calc(100% - 30vh);
   }
