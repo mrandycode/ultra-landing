@@ -2,11 +2,12 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-const humanResourceHost = 'http://localhost:3500';
+const HOST_API_FORMS= 'http://localhost:3150/'
+const API_FORMS = HOST_API_FORMS + 'api-forms';
 
 export const environment = {
   production: false,
-  humanResourceHost,
+  API_FORMS,
 };
 
 /*

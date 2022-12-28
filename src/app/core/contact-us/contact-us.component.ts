@@ -43,7 +43,7 @@ export class ContactUsComponent implements OnInit {
     });
   }
   sendContactUs(): void{
-    console.log(this.contactUsForm.value)
+
   }
 
 }

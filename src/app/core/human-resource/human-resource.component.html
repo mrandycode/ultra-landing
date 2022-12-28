@@ -11,13 +11,13 @@
       rgba(2, 0, 36, 1) 100%
     );
   }
-  .input-form label {
+  /* .input-form label {
     color: var(--dark);
     display: flex;
     justify-content: space-around;
     align-items: end;
     margin: 0;
-  }
+  } */
   .subtitle {
     margin: 10px 0;
   }
@@ -138,7 +138,7 @@
               formControlName="profession"
               (change)="getSkills()"
             >
-              <option value="0">Seleccione</option>
+              <option value="0" selected>{{'GENERIC.SELECT' | translate}}</option>
               <option
                 *ngFor="let profession of professions"
                 [value]="profession.id"
@@ -171,6 +171,28 @@
             <ul *ngFor="let skill of skillsSelected">
               <li (click)="deleteSkill(skill)">{{ skill.name }}</li>
             </ul>
+          </div>
+
+          <div class="input-form primary-color">
+            <label for="phone"> Teléfono</label>
+            <input
+              class="full-w"
+              type="tel"
+              name="phone"
+              id="phone"
+              formControlName="phone"
+              ng2TelInput
+              placeholder="04121234567"
+              [ng2TelInputOptions]="{ initialCountry: 've' }"
+              (ng2TelOutput)="hasOutPut($event, 'phone')"
+              (hasError)="hasError($event)"
+            />
+            <span
+              class="error-span"
+              *ngIf="humanResourceForm.get('phone')?.errors"
+            >
+              {{ "GENERIC.ERROR_PHONE" | translate }}
+            </span>
           </div>
 
           <div class="input-form">

@@ -6,7 +6,7 @@ import { Platform } from './models/customer-model';
 @Component({
   selector: 'app-customer',
   templateUrl: './customer.component.html',
-  styles: [],
+  styleUrls: ['./customer.component.css'],
 })
 export class CustomerComponent implements OnInit {
   customerForm!: FormGroup;
@@ -25,6 +25,7 @@ export class CustomerComponent implements OnInit {
 
   builderForms(): void {
     this.customerForm = this.formBuilder.group({
+      id: [0],
       companyName: [
         '',
         [
@@ -46,20 +47,37 @@ export class CustomerComponent implements OnInit {
       message: [''],
       companyType: [''],
       platforms: [[], [Validators.required]],
-      country: ['', [Validators.required]],
+      countryId: [0, [Validators.required]],
     });
   }
 
-  send(): void {}
+  send(): void {
+    this.customerForm.get('platforms')?.setValue(this.convertPlatforms());
+    this.customerService
+      .saveCustomer(this.customerForm.value)
+      .subscribe((response) => {
+        this.resetControls();
+      });
+  }
+
+  convertPlatforms(): Platform[] {
+    let platforms = new Array<Platform>();
+    this.platformsSelected.forEach((platform) => {
+      platforms.push({ platformId: platform.id });
+    });
+    return platforms;
+  }
 
   getPlatforms(): void {
-    this.customerService.getProfessions().subscribe((response) => {
+    this.customerService.getPlatforms().subscribe((response) => {
       this.platforms = response;
     });
   }
+
   setPlatforms(): void {
-    if (this.platformsSelected.length < 100)
+    if (this.platformsSelected.length < 100) {
       this.platformsSelected.push(this.platformSelected);
+    }
   }
 
   deleteSkill(platform: Platform): void {
@@ -79,9 +97,12 @@ export class CustomerComponent implements OnInit {
 
   hasError(event: any): void {
     if (!event && this.customerForm.value.phone !== '') {
-      this.customerForm
-        .get('phone')!
-        .setErrors(['invalid_cell_phone', true]);
+      this.customerForm.get('phone')!.setErrors(['invalid_cell_phone', true]);
     }
+  }
+
+  resetControls(): void {
+    this.customerForm.reset();
+    this.platformsSelected = [];
   }
 }

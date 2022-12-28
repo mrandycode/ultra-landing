@@ -58,6 +58,7 @@ export class HumanResourceComponent implements OnInit {
   getProfessions(): void {
     this.humanResourceService.getProfessions().subscribe((response) => {
       this.professions = response;
+      this.getSkills()
     });
   }
 
@@ -83,6 +84,22 @@ export class HumanResourceComponent implements OnInit {
   }
 
   sendCv(): void {
-    console.log(' enviado');
+   
+  }
+
+  hasOutPut(event: any, nameColumn: string): void {
+    if (nameColumn === 'mobile') {
+      this.humanResourceForm.patchValue({ mobile: event });
+    } else {
+      this.humanResourceForm.patchValue({ phone: event });
+    }
+  }
+
+  hasError(event: any): void {
+    if (!event && this.humanResourceForm.value.phone !== '') {
+      this.humanResourceForm
+        .get('phone')!
+        .setErrors(['invalid_cell_phone', true]);
+    }
   }
 }

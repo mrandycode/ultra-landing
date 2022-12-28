@@ -1,8 +1,20 @@
 {
   "GENERIC": {
-    "ERROR_PHONE": "Formato incorrecto"
+    "ERROR_PHONE": "Formato incorrecto",
+    "EMAIL": "Correo Electrónico",
+    "COUNTRY": "País",
+    "PHONE": "Teléfono",
+    "SELECT": "Seleccione"
   },
   "CUSTOMER": {
-    "TITLE": "Soy Empresa"
+    "TITLE": "Soy Empresa",
+    "COMPANY_NAME": "Nombre de la empresa",
+    "CONTACT_NAME": "Nombre del contacto",
+    "COMPANY_TYPE": "Tipo de empresa",
+    "PLATFORMS_SELECTED":"Plataformas seleccionadas",
+    "REQUEST":"Cuéntanos en pocas palabras tu necesidad"
+  },
+  "HUMAN_RESOURCE": {
+    "SKILL_SELECTED": "Habilidades seleccionadas"
   }
 }

@@ -144,9 +144,16 @@ section .section-container h1 {
   margin: 20px 0;
 }
 .input-form label {
-  color: var(--text);
+  display: none;
+  background-color: var(--white);
+  color: var(--dark);
   font-weight: bold;
   margin-bottom: 5px;
+
+  /* display: flex; */
+    justify-content: space-around;
+    align-items: end;
+    margin: 10px;
 }
 .input-form input,
 select,
@@ -163,7 +170,10 @@ textarea {
 select {
   width: 100%;
 }
-.error-span{
+.full-w {
+  width: 100% !important;
+}
+.error-span {
   color: var(--error-color);
   font-weight: bold;
   font-size: 12px;
