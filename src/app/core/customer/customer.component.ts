@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CountryService } from '@core/services/country.service';
 import { CustomerService } from '@core/services/customer.service';
+import { Country } from 'src/app/shared/models/shared-models';
 import { Platform } from './models/customer-model';
 
 @Component({
@@ -11,16 +13,20 @@ import { Platform } from './models/customer-model';
 export class CustomerComponent implements OnInit {
   customerForm!: FormGroup;
   platforms!: Platform[];
+  countries!: Country[];
   platformSelected!: Platform;
   platformsSelected: Platform[] = [];
+  countrySelected!: Country;
   constructor(
     private formBuilder: FormBuilder,
-    private customerService: CustomerService
+    private customerService: CustomerService,
+    private countryService: CountryService
   ) {}
 
   ngOnInit(): void {
     this.builderForms();
     this.getPlatforms();
+    this.getCountries();
   }
 
   builderForms(): void {
@@ -53,6 +59,7 @@ export class CustomerComponent implements OnInit {
 
   send(): void {
     this.customerForm.get('platforms')?.setValue(this.convertPlatforms());
+    console.log(this.customerForm.value, 'asdasds')
     this.customerService
       .saveCustomer(this.customerForm.value)
       .subscribe((response) => {
@@ -76,6 +83,7 @@ export class CustomerComponent implements OnInit {
 
   setPlatforms(): void {
     if (this.platformsSelected.length < 100) {
+
       this.platformsSelected.push(this.platformSelected);
     }
   }
@@ -85,6 +93,12 @@ export class CustomerComponent implements OnInit {
       (platform_) => platform_.id === platform.id
     );
     this.platformsSelected.splice(id, 1);
+  }
+
+  getCountries(): void {
+    this.countryService
+      .getCountries()
+      .subscribe((response) => [(this.countries = response)]);
   }
 
   hasOutPut(event: any, nameColumn: string): void {

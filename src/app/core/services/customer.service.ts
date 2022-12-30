@@ -18,7 +18,7 @@ export class CustomerService {
       map((response) => {
         return response as Platform[];
       })
-    );
+    );  
   }
 
   saveCustomer(customer: Customer): Observable<Customer[]> {

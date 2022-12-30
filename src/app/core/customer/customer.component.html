@@ -55,15 +55,17 @@
             />
           </div>
 
+          {{ customerForm.get("countryId")?.value }}
           <div class="input-form">
             <label for="country"> País </label>
-            <input
-              type="text"
-              name="country"
-              id="country"
-              formControlName="countryId"
-              placeholder="{{ 'GENERIC.COUNTRY' | translate }}"
-            />
+            <select name="country" id="country" formControlName="countryId">
+              <option value="0" selected>
+                {{ "GENERIC.SELECT" | translate }}
+              </option>
+              <option *ngFor="let country of countries" [ngValue]="country.id">
+                {{ country.name }}
+              </option>
+            </select>
           </div>
           <div class="input-form">
             <label for="companyType"> Tipo de empresa</label>
@@ -84,7 +86,9 @@
               [ngModelOptions]="{ standalone: true }"
               (change)="setPlatforms()"
             >
-              <option value="0" selected  >{{ "GENERIC.SELECT" | translate }}</option>
+              <option value="0" selected>
+                {{ "GENERIC.SELECT" | translate }}
+              </option>
               <option *ngFor="let platform of platforms" [ngValue]="platform">
                 {{ platform.name }}
               </option>
@@ -134,7 +138,7 @@
             class="primary-button"
             id="btn-contact-us"
             name="btn-contact-us"
-            [disabled]="!customerForm.valid"            
+            [disabled]="!customerForm.valid"
             (click)="send()"
           >
             Enviar
