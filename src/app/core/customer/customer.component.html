@@ -21,7 +21,7 @@
   <section class="form-container">
     <div class="container">
       <div class="flex-container">
-        <form [formGroup]="customerForm" novalidate>
+        <form [formGroup]="customerForm" (submit)="send()">
           <div class="input-form">
             <label for="companyName"> Nombre de la empresa</label>
             <input
@@ -55,7 +55,6 @@
             />
           </div>
 
-          {{ customerForm.get("countryId")?.value }}
           <div class="input-form">
             <label for="country"> País </label>
             <select name="country" id="country" formControlName="countryId">
@@ -86,7 +85,7 @@
               [ngModelOptions]="{ standalone: true }"
               (change)="setPlatforms()"
             >
-              <option value="0" selected>
+              <option [ngValue]="0" selected>
                 {{ "GENERIC.SELECT" | translate }}
               </option>
               <option *ngFor="let platform of platforms" [ngValue]="platform">
@@ -134,20 +133,16 @@
           </div>
 
           <button
-            type="button"
-            class="primary-button"
+            type="submit"
+            [class]="cssValidForm()"
             id="btn-contact-us"
             name="btn-contact-us"
             [disabled]="!customerForm.valid"
-            (click)="send()"
           >
             Enviar
           </button>
+          <div *ngIf="!customerForm.valid"></div>
         </form>
-        <!-- <img          
-            src="https://images.pexels.com/photos/1438072/pexels-photo-1438072.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-            alt=""
-          /> -->
       </div>
     </div>
   </section>

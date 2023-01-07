@@ -81,6 +81,19 @@ section h1 {
   font-weight: bold;
   height: 40px;
 }
+
+.primary-button-invalid {
+  background-color: var(--invalid-form);
+  border-radius: 50px;
+  border: 1px solid var(--white);
+  color: var(--white);
+  width: 160px;
+  height: 40px;
+  cursor: pointer;
+  font-size: var(--md);
+  font-weight: bold;
+  height: 40px;
+}
 .secondary-button {
   background-color: var(--white);
   border-radius: 50px;

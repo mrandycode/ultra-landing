@@ -7,7 +7,8 @@
   --text: #626262;
   --white: #ffff;
   --dark: rgb(0, 0, 0);
-  --error-color:#F45B69;
+  --error-color: #f45b69;
+  --invalid-form: #C7C4CB;
   --sm: 14px;
   --md: 16px;
   --lg: 18px;

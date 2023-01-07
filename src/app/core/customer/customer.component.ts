@@ -17,6 +17,8 @@ export class CustomerComponent implements OnInit {
   platformSelected!: Platform;
   platformsSelected: Platform[] = [];
   countrySelected!: Country;
+  platformZero = { id: 0, name: 'Seleccione' };
+  primaryButton = 'primary-button';
   constructor(
     private formBuilder: FormBuilder,
     private customerService: CustomerService,
@@ -49,7 +51,10 @@ export class CustomerComponent implements OnInit {
         ],
       ],
       phone: ['', [Validators.maxLength(50)]],
-      email: ['', [Validators.maxLength(64), Validators.email]],
+      email: [
+        '',
+        [Validators.maxLength(64), Validators.email, Validators.required],
+      ],
       message: [''],
       companyType: [''],
       platforms: [[], [Validators.required]],
@@ -59,7 +64,6 @@ export class CustomerComponent implements OnInit {
 
   send(): void {
     this.customerForm.get('platforms')?.setValue(this.convertPlatforms());
-    console.log(this.customerForm.value, 'asdasds')
     this.customerService
       .saveCustomer(this.customerForm.value)
       .subscribe((response) => {
@@ -83,8 +87,11 @@ export class CustomerComponent implements OnInit {
 
   setPlatforms(): void {
     if (this.platformsSelected.length < 100) {
-
-      this.platformsSelected.push(this.platformSelected);
+      const isFound = this.platformsSelected.findIndex(
+        (platform) => platform.id === this.platformSelected.id
+      );
+      if (isFound) this.platformsSelected.push(this.platformSelected);
+      this.customerForm.get('platforms')?.setValue(this.platformsSelected);
     }
   }
 
@@ -93,6 +100,7 @@ export class CustomerComponent implements OnInit {
       (platform_) => platform_.id === platform.id
     );
     this.platformsSelected.splice(id, 1);
+    this.customerForm.get('platforms')?.setValue(this.platformsSelected);
   }
 
   getCountries(): void {
@@ -118,5 +126,11 @@ export class CustomerComponent implements OnInit {
   resetControls(): void {
     this.customerForm.reset();
     this.platformsSelected = [];
+  }
+
+  cssValidForm(): string {
+    return this.customerForm.valid
+      ? 'primary-button'
+      : 'primary-button-invalid ';
   }
 }
