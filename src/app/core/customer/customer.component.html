@@ -27,9 +27,10 @@
             <input
               type="text"
               name="companyName"
+              required
               id="companyName"
               formControlName="companyName"
-              placeholder="{{ 'CUSTOMER.COMPANY_NAME' | translate }}"
+              placeholder="{{ 'CUSTOMER.COMPANY_NAME'  | translate }}"
             />
           </div>
 
@@ -38,6 +39,7 @@
             <input
               type="text"
               name="contactName"
+              required
               id="contactName"
               formControlName="contactName"
               placeholder="{{ 'CUSTOMER.CONTACT_NAME' | translate }}"
@@ -50,6 +52,7 @@
               type="email"
               name="email"
               id="email"
+              required
               formControlName="email"
               placeholder="{{ 'GENERIC.EMAIL' | translate }}"
             />
@@ -57,7 +60,7 @@
 
           <div class="input-form">
             <label for="country"> País </label>
-            <select name="country" id="country" formControlName="countryId">
+            <select name="country" id="country" formControlName="countryId" required>
               <option value="0" selected>
                 {{ "GENERIC.SELECT" | translate }}
               </option>
@@ -94,6 +97,7 @@
             </select>
           </div>
           <div class="my-platform">
+            <p class="p-placeholder">Seleccione las plataformas</p>
             <ul *ngFor="let platform of platformsSelected">
               <li (click)="deleteSkill(platform)">{{ platform.name }}</li>
             </ul>

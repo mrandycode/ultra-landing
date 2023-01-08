@@ -36,12 +36,13 @@ section.my-gradient {
 .my-platform {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  height: 200px;
+  height: 150px;
   max-height: 200px;
   overflow-y: auto;
   border: 1px solid var(--violet-color);
   border-radius: 4px;
-  padding: 5px;
+  padding: 0 5px;
+  place-content: center;
 }
 .my-platform ul {
   padding: 0 2px;
@@ -71,4 +72,7 @@ label span {
   width: 20px;
   height: 20px;
   text-align: center;
+}
+.p-placeholder{
+color: var(--p-placeholder-color);
 }

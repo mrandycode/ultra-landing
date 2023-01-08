@@ -8,7 +8,8 @@
   --white: #ffff;
   --dark: rgb(0, 0, 0);
   --error-color: #f45b69;
-  --invalid-form: #C7C4CB;
+  --invalid-form-color: #C7C4CB;
+  --p-placeholder-color: #867d7e;
   --sm: 14px;
   --md: 16px;
   --lg: 18px;

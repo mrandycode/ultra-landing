@@ -83,7 +83,7 @@ section h1 {
 }
 
 .primary-button-invalid {
-  background-color: var(--invalid-form);
+  background-color: var(--invalid-form-color);
   border-radius: 50px;
   border: 1px solid var(--white);
   color: var(--white);
@@ -164,9 +164,9 @@ section .section-container h1 {
   margin-bottom: 5px;
 
   /* display: flex; */
-    justify-content: space-around;
-    align-items: end;
-    margin: 10px;
+  justify-content: space-around;
+  align-items: end;
+  margin: 10px;
 }
 .input-form input,
 select,
@@ -191,6 +191,12 @@ select {
   font-weight: bold;
   font-size: 12px;
 }
+
+input:required,
+select:required {
+  border: 4px solid var(--red);
+}
+
 @media (max-width: 640px) {
   .form-container {
     display: grid;
